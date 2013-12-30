@@ -89,8 +89,7 @@ class FitBit():
 
 
 if __name__ == '__main__':
-    print my.CONSUMER_KEY
-    Debug=False
+    Debug=True
     ACCESS_TOKEN_STRING_FNAME = 'access_token.string'
     fb = FitBit()
     if not os.path.exists(ACCESS_TOKEN_STRING_FNAME):
@@ -113,14 +112,27 @@ if __name__ == '__main__':
             print "Access Token %s" % (access_token)
         #access_token = oauth.OAuthToken.from_string(access_token_string)
     #print access_token
-    weight=fb.ApiCall(access_token, '/1/user/-/body/log/weight/date/2013-12-21/7d.xml')
-    print type(weight)
-    print weight
+    weight=fb.ApiCall(access_token, '/1/user/-/body/log/weight/date/2013-12-30/1m.xml')
+    fatlist=fb.ApiCall(access_token, '/1/user/-/body/log/fat/date/2013-12-30/1m.xml')
+    if Debug:
+        print weight
+        print fatlist
     root = ET.fromstring(weight)
+    data={}
+    fat='10.0'
     for weightLog in root.iter('weightLog'):
         #print weightLog.attrib
         bmi= weightLog.find('bmi').text
         date = weightLog.find('date').text
         weight = weightLog.find('weight').text
-        print bmi,date, weight
-
+        data.update({date:[weight,bmi,]})
+        #print date, weight,bmi
+    print data
+    root = ET.fromstring(fatlist)
+    for fatLog in root.iter('fatLog'):
+        #print weightLog.attrib
+        fat= fatLog.find('fat').text
+        date = fatLog.find('date').text
+        l=data.get(date)
+        l.append(fat)
+    print data
