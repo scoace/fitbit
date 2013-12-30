@@ -8,14 +8,15 @@ Most of the code has been adapted from: https://groups.google.com/group/fitbit-a
 """
 import os, httplib
 from oauth import oauth
-from xml.dom.minidom import parseString
-import credentials
+from xml.etree import ElementTree as ET
+# Consumer Key and Secret resides in credentials
+import credentials as my
 
 # pass oauth request to server (use httplib.connection passed in as param)
 # return response as a string
 class FitBit():
-    CONSUMER_KEY = '53b4f8d0b6ab41fcacfa3ad135ae8a9e'
-    CONSUMER_SECRET = 'acc5fb84273747b8916a3dfd253f2427'
+    CONSUMER_KEY=my.CONSUMER_KEY
+    CONSUMER_SECRET=my.CONSUMER_SECRET
     SERVER = 'api.fitbit.com'
     REQUEST_TOKEN_URL = 'http://%s/oauth/request_token' % SERVER
     ACCESS_TOKEN_URL = 'http://%s/oauth/access_token' % SERVER
@@ -88,6 +89,7 @@ class FitBit():
 
 
 if __name__ == '__main__':
+    print my.CONSUMER_KEY
     Debug=False
     ACCESS_TOKEN_STRING_FNAME = 'access_token.string'
     fb = FitBit()
@@ -114,13 +116,11 @@ if __name__ == '__main__':
     weight=fb.ApiCall(access_token, '/1/user/-/body/log/weight/date/2013-12-21/7d.xml')
     print type(weight)
     print weight
-    #parse the xml you downloaded
-    dom = parseString(weight)
-    #retrieve the first xml tag (<tag>data</tag>) that the parser finds with name tagName:
-    xmlTag = dom.getElementsByTagName('weight')[0].toxml()
-    #strip off the tag (<tag>data</tag>  --->   data):
-    xmlData=xmlTag.replace('<weight>','').replace('</weight>','')
-    #print out the xml tag and data in this format: <tag>data</tag>
-    print xmlTag
-    #just print the data
-    print xmlData
+    root = ET.fromstring(weight)
+    for weightLog in root.iter('weightLog'):
+        #print weightLog.attrib
+        bmi= weightLog.find('bmi').text
+        date = weightLog.find('date').text
+        weight = weightLog.find('weight').text
+        print bmi,date, weight
+
