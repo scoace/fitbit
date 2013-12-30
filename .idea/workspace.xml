@@ -29,10 +29,10 @@
       <file leaf-file-name="fitbit.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fitbit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="24" selection-start="5850" selection-end="5850" vertical-scroll-proportion="0.83455884" vertical-offset="1089" max-vertical-offset="1905">
+            <state line="135" column="21" selection-start="5702" selection-end="5702" vertical-scroll-proportion="0.8611111" vertical-offset="384" max-vertical-offset="1230">
               <folding>
                 <element signature="e#319#337#0" expanded="true" />
-                <element signature="e#3151#4123#0" expanded="false" />
+                <element signature="e#602#3867#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -73,9 +73,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
-    <option name="width" value="1920" />
-    <option name="height" value="1176" />
+    <option name="x" value="83" />
+    <option name="y" value="62" />
+    <option name="width" value="1545" />
+    <option name="height" value="1116" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -324,23 +325,27 @@
       <created>1388432467078</created>
       <updated>1388432467078</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixed some errors">
+      <created>1388437385188</created>
+      <updated>1388437385188</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1920" height="1176" extended-state="6" />
-    <editor active="true" />
+    <frame x="83" y="62" width="1545" height="1116" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297244" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14947917" sideWeight="0.78624535" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18576051" sideWeight="0.77362204" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21375465" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21375465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22637795" sideWeight="0.50032365" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22637795" sideWeight="0.49967638" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298279" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -359,7 +364,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Remove consumer key and secret from public file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove consumer key and secret from public file" />
+    <MESSAGE value="fixed some errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some errors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -370,7 +376,7 @@
         <state line="119" column="59" selection-start="5442" selection-end="5442" vertical-scroll-proportion="0.0" vertical-offset="885" max-vertical-offset="885">
           <folding>
             <element signature="e#319#337#0" expanded="true" />
-            <element signature="e#3151#4123#0" expanded="false" />
+            <element signature="e#602#3867#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -384,10 +390,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fitbit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="24" selection-start="5850" selection-end="5850" vertical-scroll-proportion="0.83455884" vertical-offset="1089" max-vertical-offset="1905">
+        <state line="135" column="21" selection-start="5702" selection-end="5702" vertical-scroll-proportion="0.8611111" vertical-offset="384" max-vertical-offset="1230">
           <folding>
             <element signature="e#319#337#0" expanded="true" />
-            <element signature="e#3151#4123#0" expanded="false" />
+            <element signature="e#602#3867#0" expanded="false" />
           </folding>
         </state>
       </provider>

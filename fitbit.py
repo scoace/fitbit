@@ -15,8 +15,8 @@ import credentials as my
 # pass oauth request to server (use httplib.connection passed in as param)
 # return response as a string
 class FitBit():
-    CONSUMER_KEY=my.CONSUMER_KEY
-    CONSUMER_SECRET=my.CONSUMER_SECRET
+    CONSUMER_KEY = my.CONSUMER_KEY
+    CONSUMER_SECRET = my.CONSUMER_SECRET
     SERVER = 'api.fitbit.com'
     REQUEST_TOKEN_URL = 'http://%s/oauth/request_token' % SERVER
     ACCESS_TOKEN_URL = 'http://%s/oauth/access_token' % SERVER
@@ -69,11 +69,6 @@ class FitBit():
         return access_token
 
     def ApiCall(self, access_token, apiCall):
-        #other API Calls possible, or read the FitBit documentation for the full list.
-        #apiCall = '/1/user/-/devices.json'
-        #apiCall = '/1/user/-/profile.json'
-        #apiCall = '/1/user/-/activities/date/2011-06-17.json'
-        print apiCall
         signature_method = oauth.OAuthSignatureMethod_PLAINTEXT()
         connection = httplib.HTTPSConnection(self.SERVER)
         #build the access token from a string
@@ -89,7 +84,7 @@ class FitBit():
 
 
 if __name__ == '__main__':
-    Debug=True
+    Debug = True
     ACCESS_TOKEN_STRING_FNAME = 'access_token.string'
     fb = FitBit()
     if not os.path.exists(ACCESS_TOKEN_STRING_FNAME):
@@ -110,29 +105,38 @@ if __name__ == '__main__':
         fobj.close()
         if Debug:
             print "Access Token %s" % (access_token)
-        #access_token = oauth.OAuthToken.from_string(access_token_string)
-    #print access_token
-    weight=fb.ApiCall(access_token, '/1/user/-/body/log/weight/date/2013-12-30/1m.xml')
-    fatlist=fb.ApiCall(access_token, '/1/user/-/body/log/fat/date/2013-12-30/1m.xml')
+            #access_token = oauth.OAuthToken.from_string(access_token_string)
+            #print access_token
+    weight = fb.ApiCall(access_token, '/1/user/-/body/log/weight/date/2013-12-30/7d.xml')
+    fatlist = fb.ApiCall(access_token, '/1/user/-/body/log/fat/date/2013-12-30/7d.xml')
     if Debug:
         print weight
         print fatlist
     root = ET.fromstring(weight)
-    data={}
-    fat='10.0'
+    data = {}
+
     for weightLog in root.iter('weightLog'):
         #print weightLog.attrib
-        bmi= weightLog.find('bmi').text
+        bmi = weightLog.find('bmi').text
         date = weightLog.find('date').text
         weight = weightLog.find('weight').text
-        data.update({date:[weight,bmi,]})
+        data.update({date: [weight, bmi, ]})
         #print date, weight,bmi
-    print data
+    if Debug:
+        print data
     root = ET.fromstring(fatlist)
     for fatLog in root.iter('fatLog'):
         #print weightLog.attrib
-        fat= fatLog.find('fat').text
+        fat = fatLog.find('fat').text
         date = fatLog.find('date').text
-        l=data.get(date)
+        l = data.get(date)
         l.append(fat)
-    print data
+    if Debug:
+        print data
+    # sort dictionary
+    sorted(data.iterkeys())
+    for key, value in data.iteritems():
+        gw = float(value[0])
+        bmi = float(value[1])
+        fat = float(value[2])
+        print ("{0} {1} {2} {3}".format(key, gw, bmi, fat))
